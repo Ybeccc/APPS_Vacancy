@@ -8,6 +8,7 @@ const App = () => (
   <Router>
     <div className="bg-primary w-full overflow-hidden">
       <Routes>
+        <Route path="/" element={<Informasi />} />
         <Route path="/informasi" element={<Informasi />} />
         <Route path="/pendaftaran" element={<Pendaftaran />} />
         <Route path="/pengumuman" element={<Pengumuman />} />

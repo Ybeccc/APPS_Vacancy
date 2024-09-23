@@ -4,8 +4,7 @@ import Navbar from './components/Navbar';
 import Business from './components/Business';
 import Footer from './components/Footer';
 
-import Button from "./components/Button";
-import { jumbotron1, apple, bill, google, card } from './assets';
+import { jumbotron1, bill, card } from './assets';
 
 const Informasi = () => (
   <div className="bg-primary w-full overflow-hidden">
