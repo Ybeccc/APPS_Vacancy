@@ -1,1 +1,1 @@
-# APPS_Vancancy
+# APPS_Vacancy
