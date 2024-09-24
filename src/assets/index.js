@@ -10,6 +10,8 @@ import jumbotron1 from "./jumbotron1.svg";
 import jumbotron2 from "./jumbotron2.svg";
 import jumbotron3 from "./jumbotron3.svg";
 import jumbotron4 from "./jumbotron4.svg";
+import asmahasiswa from "./ASmahasiswa.svg";
+import aspraktikum from "./ASpraktikum.svg";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
@@ -22,6 +24,7 @@ import discount from "./Discount.svg";
 import facebook from "./facebook.svg";
 import instagram from "./instagram.svg";
 import linkedin from "./linkedin.svg";
+import youtube from "./youtube.svg";
 import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
@@ -40,6 +43,8 @@ export {
   jumbotron2,
   jumbotron3,
   jumbotron4,
+  aspraktikum,
+  asmahasiswa,
   send,
   shield,
   star,
@@ -52,6 +57,7 @@ export {
   facebook,
   instagram,
   linkedin,
+  youtube,
   twitter,
   people01,
   people02,
