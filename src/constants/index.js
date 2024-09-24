@@ -23,23 +23,23 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Rewards",
+    title: "Pengalaman",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "Dapatkan pengalaman baik hardskill maupun softskill yang dapat meningkatkan keterampilan pemecahan masalah Anda.",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "100% Secured",
+    title: "SKPI",
     content:
-      "We take proactive steps make sure your information and transactions are secure.",
+      "Poin SKPI yang dapat digunakan untuk sebagai pelengkap di akhir semester.",
   },
   {
     id: "feature-3",
     icon: send,
-    title: "Balance Transfer",
+    title: "Uang Saku",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Dapatkan uang saku sebagai hasil atas kontribusi dan kerja keras sebagai seorang asisten.",
   },
 ];
 

@@ -2,9 +2,10 @@ import styles, { layout } from "./style";
 
 import Navbar from './components/Navbar';
 import Business from './components/Business';
+import CTA from './components/CTA';
 import Footer from './components/Footer';
 
-import { jumbotron1, bill, card } from './assets';
+import { jumbotron1, asmahasiswa, aspraktikum } from './assets';
 
 const Informasi = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -50,7 +51,7 @@ const Informasi = () => (
         {/* =====ASISTEN PRAKTIKUM SECTION===== */}
         <section id="product" className={layout.sectionReverse}>
           <div className={layout.sectionImgReverse}>
-            <img src={bill} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+            <img src={aspraktikum} alt="aspraktikum" className="w-[100%] h-[100%] relative z-[5]" />
 
             {/* gradient start */}
             <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
@@ -82,11 +83,12 @@ const Informasi = () => (
           </div>
 
           <div className={layout.sectionImg}>
-            <img src={card} alt="card" className="w-[100%] h-[100%]"/>
+            <img src={asmahasiswa} alt="asmahasiswa" className="w-[100%] h-[100%]"/>
           </div>
         </section>
 
         <Business/>
+        <CTA/>
         <Footer/>
       </div>
     </div>
