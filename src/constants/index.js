@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, youtube, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
 
 export const navLinks = [
   {
@@ -23,23 +23,23 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Pengalaman",
+    title: "Rewards",
     content:
-      "Dapatkan pengalaman baik hardskill maupun softskill yang dapat meningkatkan keterampilan pemecahan masalah Anda.",
+      "The best credit cards offer some tantalizing combinations of promotions and prizes",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "SKPI",
+    title: "100% Secured",
     content:
-      "Poin SKPI yang dapat digunakan untuk sebagai pelengkap di akhir semester.",
+      "We take proactive steps make sure your information and transactions are secure.",
   },
   {
     id: "feature-3",
     icon: send,
-    title: "Uang Saku",
+    title: "Balance Transfer",
     content:
-      "Dapatkan uang saku sebagai hasil atas kontribusi dan kerja keras sebagai seorang asistem.",
+      "A balance transfer credit card can save you a lot of money in interest charges.",
   },
 ];
 
@@ -172,8 +172,8 @@ export const socialMedia = [
   },
   {
     id: "social-media-4",
-    icon: youtube,
-    link: "https://www.youtube.com/",
+    icon: linkedin,
+    link: "https://www.linkedin.com/",
   },
 ];
 
