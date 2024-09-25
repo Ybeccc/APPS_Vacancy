@@ -1,11 +1,9 @@
 import styles from './style';
+import { stats } from './constants';
+import Button from './components/Button';
 
 import Navbar from './components/Navbar';
-import Stats from './components/Stats';
-import CardDeal from './components/CardDeal';
 import Testimonials from './components/Testimonials';
-import Clients from './components/Clients';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 
 import { jumbotron2 } from './assets';
@@ -49,11 +47,36 @@ const Pendaftaran = () => (
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
       <div className={`${styles.boxWidth}`}>
-        <Stats/>
-        <CardDeal/>
+
+        {/* =====TAHAPAN PENDAFTARAN SECTION===== */}
+        <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6`}>
+          {stats.map((stat) => (
+              <div key={stat.id} className={`flex-1 flex justify-start items-center flex-row m-3`}>
+                  <h4 className="font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] text-white">{stat.value}</h4>
+                  <p className="font-poppins font-normal xs:text-[20px] text-[15px] xs:leading-[26px] leading-[21px] text-gradient uppercase ml-3">{stat.title}</p>
+              </div>
+          ))}
+        </section>
+
+        {/* =====PERSYARATAN A.PRAKTIKUM SECTION===== */}
+        <section id="requirements" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative `}>
+          <div className="absolute z-[0] w-[60%] h-[60%] -right-[50%] rounded-full blue__gradient bottom-40" />
+
+          <div className="w-full flex flex-col items-start sm:mb-16 mb-6 relative z-[1]">
+            <h1 className={styles.heading2}>
+              Persyaratan Asisten Praktikum
+            </h1>
+            <div className="w-full mt-6">
+              <p className={`${styles.paragraph} text-left max-w-[450px]`}>
+                Everything you need to accept card payments and grow your business
+                anywhere on the planet.
+              </p>
+            </div>
+            <Button styles="mt-10" />
+          </div>
+        </section>
+        {/* =====PERSYARATAN A.MAHASISWA SECTION===== */}
         <Testimonials/>
-        <Clients/>
-        <CTA/>
         <Footer/>
       </div>
     </div>
