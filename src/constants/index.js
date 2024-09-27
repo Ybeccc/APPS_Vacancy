@@ -43,30 +43,93 @@ export const features = [
   },
 ];
 
-export const feedback = [
+export const practicumList = [
   {
-    id: "feedback-1",
-    content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-    name: "Herman Jensen",
-    title: "Founder & Leader",
+    id: "practicum-list-1",
+    name: "Twilight Sparkle",
+    title: "825210001",
+    content: "Oracle Database Administrator",
     img: people01,
   },
   {
-    id: "feedback-2",
-    content:
-      "Money makes your life easier. If you're lucky to have it, you're lucky.",
-    name: "Steve Mark",
-    title: "Founder & Leader",
+    id: "practicum-list-2",
+    name: "Fluttershy",
+    title: "825210002",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-3",
+    name: "Pinkie Pie",
+    title: "825210003",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-4",
+    name: "Rarity",
+    title: "825210004",
+    content: "Big Data",
+    img: people01,
+  },
+  {
+    id: "practicum-list-5",
+    name: "Apple Jack",
+    title: "825210005",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-6",
+    name: "Rainbow Dash",
+    title: "825210006",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-7",
+    name: "Princess Celestia",
+    title: "825210007",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-8",
+    name: "Princess Luna",
+    title: "825210008",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-9",
+    name: "Princess Cadance",
+    title: "825210009",
+    content: "Oracle Database Administrator",
+    img: people01,
+  },
+  {
+    id: "practicum-list-10",
+    name: "Spike",
+    title: "825210010",
+    content: "Oracle Database Administrator, Database Systems, Big Data",
+    img: people01,
+  },
+];
+
+export const studentList = [
+  {
+    id: "practicum-list-1",
+    name: "Mage Meadowbrook",
+    title: "825210001",
+    content: "Asisten Mahasiswa Laboran",
     img: people02,
   },
   {
-    id: "feedback-3",
-    content:
-      "It is usually people in the money business, finance, and international trade that are really rich.",
-    name: "Kenn Gallagher",
-    title: "Founder & Leader",
-    img: people03,
+    id: "practicum-list-2",
+    name: "Flash Magnus",
+    title: "825210002",
+    content: "Asisten Mahasiswa Laboran",
+    img: people02,
   },
 ];
 
@@ -163,22 +226,22 @@ export const socialMedia = [
   {
     id: "social-media-1",
     icon: instagram,
-    link: "https://www.instagram.com/",
+    link: "https://instagram.com/fti.untar",
   },
   {
     id: "social-media-2",
     icon: facebook,
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/untarjakarta/",
   },
   {
     id: "social-media-3",
     icon: twitter,
-    link: "https://www.twitter.com/",
+    link: "https://twitter.com/fti_untar",
   },
   {
     id: "social-media-4",
     icon: youtube,
-    link: "https://www.youtube.com/",
+    link: "https://www.youtube.com/@FTIUNTAR",
   },
 ];
 
