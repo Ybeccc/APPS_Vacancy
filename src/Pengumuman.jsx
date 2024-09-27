@@ -1,9 +1,6 @@
 import styles from './style';
 
 import Navbar from './components/Navbar';
-import Stats from './components/Stats';
-import Business from './components/Business';
-import Billing from './components/Billing';
 import Footer from './components/Footer';
 
 import { jumbotron1 } from './assets';
@@ -47,9 +44,27 @@ const Pengumuman = () => (
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
       <div className={`${styles.boxWidth}`}>
-        <Stats/>
-        <Business/>
-        <Billing/>
+
+        {/* =====PENGUMUMAN A.PRAKTIKUM SECTION===== */}
+        <section className={`${styles.flexCenter} ${styles.marginY} ${styles.padding} sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow`}>
+          <div className="flex-1 flex flex-col">
+            <h2 className={styles.heading2}>Penerimaan Asisten Praktikum</h2>
+            <p className={`${styles.paragraph} mt-5`}>
+              Selamat dan sukses kepada asisten praktikum yang terpilih. Temukan NIM Anda dibawah ini. Untuk informasi selanjutnya, silakan hubungi koordinator praktikum.
+            </p>
+          </div>
+        </section>
+
+        {/* =====PENGUMUMAN A.MAHASISWA SECTION===== */}
+        <section className={`${styles.flexCenter} ${styles.marginY} ${styles.padding} sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow`}>
+          <div className="flex-1 flex flex-col">
+            <h2 className={styles.heading2}>Penerimaan Asisten Mahasiswa</h2>
+            <p className={`${styles.paragraph} mt-5`}>
+              Selamat dan sukses kepada asisten mahasiswa yang terpilih. Temukan NIM Anda dibawah ini. Untuk informasi selanjutnya, silakan hubungi koordinator laboran.
+            </p>
+          </div>
+        </section>
+
         <Footer/>
       </div>
     </div>

@@ -76,7 +76,7 @@ const Informasi = () => (
             </h2>
             <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
             Asisten Mahasiswa adalah mahasiswa yang khusus bekerja dalam mendukung aspek operasional dan teknis laboratorium. 
-            Mereka memiliki tanggung jawba untuk menjaga lingkungan laboratorium, memastikan semua peralatan berfungsi dengan baik, dan melakukan perawatan rutin pada alat laboratorium.
+            Mereka memiliki tanggung jawab untuk menjaga lingkungan laboratorium, memastikan semua peralatan berfungsi dengan baik, dan melakukan perawatan rutin pada alat laboratorium.
             </p>
           </div>
 

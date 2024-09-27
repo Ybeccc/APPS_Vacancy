@@ -73,18 +73,23 @@ export const feedback = [
 export const stats = [
   {
     id: "stats-1",
-    title: "User Active",
-    value: "3800+",
+    title: "Seleksi Administrasi",
+    value: ">",
   },
   {
     id: "stats-2",
-    title: "Trusted by Company",
-    value: "230+",
+    title: "Tes Program",
+    value: ">",
   },
   {
     id: "stats-3",
-    title: "Transaction",
-    value: "$230M+",
+    title: "Wawancara",
+    value: ">",
+  },
+  {
+    id: "stats-4",
+    title: "Pengumuman",
+    value: " ",
   },
 ];
 
@@ -193,5 +198,33 @@ export const clients = [
   {
     id: "client-4",
     logo: dropbox,
+  },
+];
+
+export const pracNim = [
+  {
+    id: "prac-nim-1",
+    course: "Oracle Database Administrator",
+    nim: "825210001, 825210002"
+  },
+  {
+    id: "prac-nim-2",
+    course: "Enterprise Database",
+    nim: "825210001, 825210002"
+  },
+  {
+    id: "prac-nim-3",
+    course: "Database Systems",
+    nim: "825210001, 825210002"
+  },
+  {
+    id: "prac-nim-4",
+    course: "Advanced Business Information System",
+    nim: "825210001, 825210002"
+  },
+  {
+    id: "prac-nim-5",
+    course: "Big Data",
+    nim: "825210001, 825210002"
   },
 ];
