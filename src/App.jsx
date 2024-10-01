@@ -3,6 +3,8 @@ import Informasi from './Informasi';
 import Pendaftaran from './Pendaftaran';
 import Pengumuman from './Pengumuman';
 import Asisten from './Asisten';
+import Layout from "./components/Layout";
+import Beranda from "./Beranda";
 
 const App = () => (
   <Router>
@@ -13,6 +15,7 @@ const App = () => (
         <Route path="/pendaftaran" element={<Pendaftaran />} />
         <Route path="/pengumuman" element={<Pengumuman />} />
         <Route path="/asisten" element={<Asisten />} />
+        <Route path="/login" element={<Layout />} />
       </Routes>
     </div>
   </Router>
