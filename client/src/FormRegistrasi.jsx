@@ -18,6 +18,8 @@ const FormRegistrasi = () => {
     
     const [courses, setCourses] = useState([]); // Store courses from the API
     const [loading, setLoading] = useState(true); // Loading state
+
+    const [file, setFile] = useState(null); //upload PDF
     
     useEffect(() => {
         const fetchCourses = async () => {
@@ -74,7 +76,7 @@ const FormRegistrasi = () => {
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your full name"
+                    placeholder="Masukkan Nama Lengkap"
                 />
                 </div>
 
@@ -89,7 +91,7 @@ const FormRegistrasi = () => {
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your email"
+                    placeholder="Masukan Nomor Induk Mahasiswa"
                 />
                 </div>
 
@@ -104,23 +106,29 @@ const FormRegistrasi = () => {
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your student ID"
+                    placeholder="Masukkan Email UNTAR"
                 />
                 </div>
 
-                {/* Study Program Input */}
+                {/* Study Program Dropdown */}
                 <div>
-                <label htmlFor="studyProgram" className={styles.label}>Program Studi</label>
-                <input
-                    type="text"
-                    id="studyProgram"
-                    name="studyProgram"
-                    value={formData.studyProgram}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your study program"
-                />
+                    <label htmlFor="studyProgram" className={styles.label}>
+                        Program Studi
+                    </label>
+                    <select
+                        id="studyProgram"
+                        name="studyProgram"
+                        value={formData.studyProgram}
+                        onChange={handleChange}
+                        required
+                        className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="" disabled>
+                        Pilih Program Studi
+                        </option>
+                        <option value="Sistem Informasi">Sistem Informasi</option>
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                    </select>
                 </div>
 
                 {/* Class of Input */}
@@ -134,13 +142,13 @@ const FormRegistrasi = () => {
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your class year (e.g., 2022)"
+                    placeholder="Masukkan tahun angkatan (e.g., 2022)"
                 />
                 </div>
 
                 {/* Course Name Dropdown */}
                 <div className="mb-4">
-                    <label htmlFor="courseName" className={`${styles.label} block text-sm font-medium text-gray-700`}>
+                    <label htmlFor="courseName" className={styles.label}>
                         Mata Kuliah
                     </label>
                     <select
@@ -162,6 +170,51 @@ const FormRegistrasi = () => {
                         <option disabled>Tidak ada mata kuliah tersedia</option>
                         )}
                     </select>
+                </div>
+
+                {/* Upload Surat Lamaran PDF */}
+                <div>
+                    <label htmlFor="suratLamaran" className={styles.label}>
+                        Upload Surat Lamaran
+                    </label>
+                    <form>
+                        <input
+                            type="file"
+                            id="suratLamaran"
+                            accept="application/pdf"
+                            onChange={(e) => handleFileChange(e, setSuratLamaran)}
+                        />
+                    </form>
+                </div>
+
+                {/* Upload CV PDF */}
+                <div>
+                    <label htmlFor="CV" className={styles.label}>
+                        Upload CV
+                    </label>
+                    <form>
+                        <input
+                            type="file"
+                            id="CV"
+                            accept="application/pdf"
+                            onChange={(e) => handleFileChange(e, setCV)}
+                        />
+                    </form>
+                </div>
+
+                {/* Upload KHS PDF */}
+                <div>
+                    <label htmlFor="KHS" className={styles.label}>
+                        Upload KHS
+                    </label>
+                    <form>
+                        <input
+                            type="file"
+                            id="KHS"
+                            accept="application/pdf"
+                            onChange={(e) => handleFileChange(e, setKHS)}
+                        />
+                    </form>
                 </div>
 
                 <div className="flex justify-center mt-6">

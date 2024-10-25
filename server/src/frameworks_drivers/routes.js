@@ -18,7 +18,6 @@ router.get('/classes', (req, res) => classesController.getAll(req, res));
 router.get('/courses', (req, res) => coursesController.getAll(req, res));
 
 // applicant routes
-// payroll routes
 router.post('/applicant', (req, res) => applicantController.createApplicant(req, res));
 router.get('/applicant', (req, res) => applicantController.getAll(req, res));
 
