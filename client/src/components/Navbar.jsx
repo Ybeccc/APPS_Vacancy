@@ -17,9 +17,7 @@ const Navbar = () => {
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
               active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} ${
-              nav.id === "login" ? "py-2 px-6 bg-blue-gradient rounded-[10px] outline-none" : ""
-            } hover:text-white `} // Add background for Login
+            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} hover:text-white`}
             onClick={() => setActive(nav.title)}
           >
             <Link to={`/${nav.id}`}>{nav.title}</Link>
@@ -46,9 +44,7 @@ const Navbar = () => {
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
                   active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"} ${
-                  nav.id === "login" ? "py-2 px-6 bg-blue-gradient rounded-[10px] outline-none" : ""
-                }`} // Add background for Login in mobile view
+                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(nav.title)}
               >
                 <Link to={`/${nav.id}`}>{nav.title}</Link>
