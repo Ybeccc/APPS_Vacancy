@@ -4,34 +4,43 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 const FormRegistrasi = () => {
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        studentId: "",
-        studyProgram: "",
-        classOf: "",
-        courseName: ""
+        aplName: "",
+        aplNim: "",
+        aplEmail: "",
+        aplProdi: "",
+        aplAkt: "",
+        aplCrsId: "",
     });
     
-    const [courses, setCourses] = useState([]); // Store courses from the API
-    const [loading, setLoading] = useState(true); // Loading state
+    const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const [file, setFile] = useState(null); //upload PDF
-    
+    // File states
+    const [aplSuratLamaran, setAplSuratLamaran] = useState(null);
+    const [aplCv, setAplCv] = useState(null);
+    const [aplKhs, setAplKhs] = useState(null);
+
+    // Navigate
+    const navigate = useNavigate();
+
+    // Validate aplNim with regex (only numbers)
+    const validateNim = (nim) => /^[0-9]*$/.test(nim);
+
     useEffect(() => {
         const fetchCourses = async () => {
-          try {
-            const response = await axios.get("http://localhost:3000/courses"); // Adjust URL as needed
-            console.log("API Response:", response.data); // Verify the response structure
-            setCourses(response.data.data); // Access the 'data' array inside the response
-            setLoading(false);
-          } catch (error) {
-            console.error("Error fetching courses:", error);
-            setLoading(false);
-          }
+            try {
+                const response = await axios.get("http://localhost:3000/courses");
+                setCourses(response.data.data);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+                setLoading(false);
+            }
         };
         fetchCourses();
     }, []);
@@ -41,14 +50,81 @@ const FormRegistrasi = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Data Submitted:", formData);
-        alert("Registration Successful!");
+    const validateEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@stu\.untar\.ac\.id$/;
+        return emailRegex.test(email);
     };
+
+    const handleFileChange = (e, setter) => {
+        const file = e.target.files[0];
+
+        // Validate file size (max 1 MB)
+        if (file && file.size > 1024 * 1024) {
+            alert("File size must be less than or equal to 1 MB.");
+            e.target.value = ""; // Reset the file input
+            return;
+        }
+        setter(file); // Store the valid file
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Email validation
+        if (!validateEmail(formData.aplEmail)) {
+            alert("Masukkan email UNTAR yang valid email@stu.untar.ac.id.");
+            return;
+        }
+
+        const data = new FormData();
+        data.append("aplName", formData.aplName);
+        data.append("aplNim", formData.aplNim);
+        data.append("aplEmail", formData.aplEmail);
+        data.append("aplProdi", formData.aplProdi);
+        data.append("aplAkt", formData.aplAkt);
+        data.append("aplCrsId", formData.aplCrsId);
+
+        // Append files to FormData
+        if (aplSuratLamaran) data.append("aplSuratLamaran", aplSuratLamaran);
+        if (aplCv) data.append("aplCv", aplCv);
+        if (aplKhs) data.append("aplKhs", aplKhs);
+
+        // Log the FormData content
+        for (let [key, value] of data.entries()) {
+            console.log(`${key}:`, value);
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/applicant', data);
     
+            // Log the entire response for debugging
+            console.log('Full Response:', response);
+            console.log('Response Status:', response.status);
+
+            if (response.status === 200) {
+                console.log('Navigating to /informasi');
+                navigate('/informasi'); // Redirect to /informasi
+                alert('Registrasi Berhasil!');
+            } else {
+                console.error('Unexpected response:', response);
+                alert('Terjadi kesalahan, silahkan coba lagi.');
+            }
+        } catch (error) {
+            // Handle the error, including the status if available
+            if (error.response) {
+                console.error('Error Response:', error.response);
+                console.error('Error Status:', error.response.status);
+                alert(`Error: ${error.response.data.message}`);
+            } else {
+                console.error('Error submitting form:', error);
+                alert('Terjadi kesalahan, silahkan coba lagi.');
+            }
+        }
+        
+    };
+
     if (loading) {
-        return <div>Loading courses...</div>; // Show a loading message while fetching
+        return <div>Loading courses...</div>;
     }
 
   return (
@@ -67,12 +143,12 @@ const FormRegistrasi = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Name Input */}
                 <div>
-                <label htmlFor="name" className={styles.label}>Nama Lengkap</label>
+                <label htmlFor="aplName" className={styles.label}>Nama Lengkap</label>
                 <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="aplName"
+                    name="aplName"
+                    value={formData.aplName}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -82,12 +158,12 @@ const FormRegistrasi = () => {
 
                 {/* Email Input */}
                 <div>
-                <label htmlFor="email" className={styles.label}>Nomor Induk Mahasiswa</label>
+                <label htmlFor="aplNim" className={styles.label}>Nomor Induk Mahasiswa</label>
                 <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    id="aplNim"
+                    name="aplNim"
+                    value={formData.aplNim}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -97,12 +173,12 @@ const FormRegistrasi = () => {
 
                 {/* Student ID Input */}
                 <div>
-                <label htmlFor="studentId" className={styles.label}>Email UNTAR</label>
+                <label htmlFor="aplEmail" className={styles.label}>Email UNTAR</label>
                 <input
-                    type="text"
-                    id="studentId"
-                    name="studentId"
-                    value={formData.studentId}
+                    type="email"
+                    id="aplEmail"
+                    name="aplEmail"
+                    value={formData.aplEmail}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -112,13 +188,13 @@ const FormRegistrasi = () => {
 
                 {/* Study Program Dropdown */}
                 <div>
-                    <label htmlFor="studyProgram" className={styles.label}>
+                    <label htmlFor="aplProdi" className={styles.label}>
                         Program Studi
                     </label>
                     <select
-                        id="studyProgram"
-                        name="studyProgram"
-                        value={formData.studyProgram}
+                        id="aplProdi"
+                        name="aplProdi"
+                        value={formData.aplProdi}
                         onChange={handleChange}
                         required
                         className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
@@ -133,28 +209,28 @@ const FormRegistrasi = () => {
 
                 {/* Class of Input */}
                 <div>
-                <label htmlFor="classOf" className={styles.label}>Angkatan</label>
+                <label htmlFor="aplAkt" className={styles.label}>Angkatan</label>
                 <input
                     type="number"
-                    id="classOf"
-                    name="classOf"
-                    value={formData.classOf}
+                    id="aplAkt"
+                    name="aplAkt"
+                    value={formData.aplAkt}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Masukkan tahun angkatan (e.g., 2022)"
+                    placeholder="Masukkan tahun angkatan (e.g., 22)"
                 />
                 </div>
 
                 {/* Course Name Dropdown */}
                 <div className="mb-4">
-                    <label htmlFor="courseName" className={styles.label}>
+                    <label htmlFor="aplCrsId" className={styles.label}>
                         Mata Kuliah
                     </label>
                     <select
-                        id="courseName"
-                        name="courseName"
-                        value={formData.courseName}
+                        id="aplCrsId"
+                        name="aplCrsId"
+                        value={formData.aplCrsId}
                         onChange={handleChange}
                         required
                         className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -162,7 +238,7 @@ const FormRegistrasi = () => {
                         <option value="" disabled>Pilih Mata Kuliah</option>
                         {Array.isArray(courses) && courses.length > 0 ? (
                         courses.map((course) => (
-                            <option key={course.crsId} value={course.crsCourseName}>
+                            <option key={course.crsId} value={course.crsId}>
                             {course.crsCourseName}
                             </option>
                         ))
@@ -174,52 +250,31 @@ const FormRegistrasi = () => {
 
                 {/* Upload Surat Lamaran PDF */}
                 <div>
-                    <label htmlFor="suratLamaran" className={styles.label}>
+                    <label className={styles.label}>
                         Upload Surat Lamaran
                     </label>
-                    <form>
-                        <input
-                            type="file"
-                            id="suratLamaran"
-                            accept="application/pdf"
-                            onChange={(e) => handleFileChange(e, setSuratLamaran)}
-                        />
-                    </form>
+                    <input type="file" name="aplSuratLamaran" onChange={(e) => handleFileChange(e, setAplSuratLamaran)} />
                 </div>
 
                 {/* Upload CV PDF */}
                 <div>
-                    <label htmlFor="CV" className={styles.label}>
+                    <label className={styles.label}>
                         Upload CV
                     </label>
-                    <form>
-                        <input
-                            type="file"
-                            id="CV"
-                            accept="application/pdf"
-                            onChange={(e) => handleFileChange(e, setCV)}
-                        />
-                    </form>
+                    <input type="file" name="aplCv" onChange={(e) => handleFileChange(e, setAplCv)} />
                 </div>
 
                 {/* Upload KHS PDF */}
                 <div>
-                    <label htmlFor="KHS" className={styles.label}>
+                    <label className={styles.label}>
                         Upload KHS
                     </label>
-                    <form>
-                        <input
-                            type="file"
-                            id="KHS"
-                            accept="application/pdf"
-                            onChange={(e) => handleFileChange(e, setKHS)}
-                        />
-                    </form>
+                    <input type="file" name="aplKhs" onChange={(e) => handleFileChange(e, setAplKhs)} />
                 </div>
 
                 <div className="flex justify-center mt-6">
                     <button
-                        type="button"
+                        type="submit"
                         className={`py-4 px-6 font-poppins font-medium text-[18px] text-primary bg-blue-gradient rounded-[10px] outline-none ${styles} mt-10`}>
                         Daftar
                     </button>

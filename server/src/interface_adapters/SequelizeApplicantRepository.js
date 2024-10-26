@@ -42,6 +42,21 @@ const ApplicantModel = sequelizeDatabase.getConnection().define('Applicant', {
         allowNull: false,
         field: 'apl_crs_id'
     },
+    aplSuratLamaran: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+        field: 'apl_surat_lamaran'
+    },
+    aplCv: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+        field: 'apl_cv'
+    },
+    aplKhs: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+        field: 'apl_khs'
+    },
     aplCreatedAt: {
         type: DataTypes.DATE,
         allowNull: false,

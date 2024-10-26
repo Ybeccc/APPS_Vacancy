@@ -7,6 +7,9 @@ class Applicant {
       aplProdi,
       aplAkt,
       aplCrsId,
+      aplSuratLamaran,
+      aplCv,
+      aplKhs,
       aplCreatedAt = new Date()
     }) {
       this.aplId = aplId;
@@ -16,6 +19,9 @@ class Applicant {
       this.aplProdi = aplProdi;
       this.aplAkt = aplAkt;
       this.aplCrsId = aplCrsId;
+      this.aplSuratLamaran = aplSuratLamaran;
+      this.aplCv = aplCv;
+      this.aplKhs = aplKhs;
       this.aplCreatedAt = aplCreatedAt;
     }
   }
