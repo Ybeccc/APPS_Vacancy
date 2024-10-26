@@ -291,3 +291,97 @@ export const pracNim = [
     nim: "825210001, 825210002"
   },
 ];
+
+export const listCourseTI = [
+  {
+    id: "course-ti-1",
+    name: "Fundamental Programming"
+  },
+  {
+    id: "course-ti-2",
+    name: "Computation I"
+  },
+  {
+    id: "course-ti-3",
+    name: "Database Systems"
+  },
+  {
+    id: "course-ti-4",
+    name: "Mobile Programming"
+  },
+  {
+    id: "course-ti-5",
+    name: "Front-End Programming"
+  },
+  {
+    id: "course-ti-6",
+    name: "Computer Systems"
+  },
+  {
+    id: "course-ti-7",
+    name: "Introduction to OS"
+  },
+  {
+    id: "course-ti-8",
+    name: "Distributed Systems"
+  },
+  {
+    id: "course-ti-9",
+    name: "Web Development"
+  },
+  {
+    id: "course-ti-10",
+    name: "Natural Language Processing"
+  },
+  {
+    id: "course-ti-11",
+    name: "Artificial Neural Networks"
+  },
+  {
+    id: "course-ti-12",
+    name: "Computer Vision"
+  },
+  {
+    id: "course-ti-13",
+    name: "Interactive Game Design"
+  },
+  {
+    id: "course-ti-14",
+    name: "Data Mining"
+  },
+];
+
+export const listCourseSI = [
+  {
+    id: "course-si-1",
+    name: "Algorithms and Programming"
+  },
+  {
+    id: "course-si-2",
+    name: "Informatics Logic"
+  },
+  {
+    id: "course-si-3",
+    name: "Object Based Programming"
+  },
+  {
+    id: "course-si-4",
+    name: "Web Development"
+  },
+  {
+    id: "course-si-5",
+    name: "Analysis and Design of Information Systems"
+  },
+  {
+    id: "course-si-6",
+    name: "Oracle Database Administrator"
+  },
+  {
+    id: "course-si-7",
+    name: "Big Data Analytic"
+  },
+  {
+    id: "course-si-8",
+    name: "Mobile Programming"
+  },
+];

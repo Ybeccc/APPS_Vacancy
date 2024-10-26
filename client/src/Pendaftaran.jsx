@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 import { jumbotron2 } from './assets';
+import { listCourseTI, listCourseSI } from "./constants";
 
 const Pendaftaran = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -46,6 +47,39 @@ const Pendaftaran = () => (
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
       <div className={`${styles.boxWidth}`}>
+        {/* MATA KULIAH TEKNIK INFORMATIKA */}
+        <section id="lowongan-ti" className={`${styles.paddingY} ${styles.flexCenter} flex-col`}>
+        <div className="flex justify-center items-center w-full">
+          <h1 className={`${styles.heading2} text-center`}>Lowongan Mata Kuliah TI</h1>
+        </div>
+          <div className="flex flex-wrap justify-center mt-5">
+            {listCourseTI.map((course) => (
+              <div
+                key={course.id}
+                className="m-2 px-4 py-2 bg-gray-gradient rounded-full shadow-lg text-white text-center font-poppins text-[18px] cursor-pointer hover:bg-gray-200 transition-all duration-300"
+              >
+                {course.name}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* MATA KULIAH TEKNIK INFORMATIKA */}
+        <section id="lowongan-ti" className={`${styles.paddingY} ${styles.flexCenter} flex-col`}>
+        <div className="flex justify-center items-center w-full">
+          <h1 className={`${styles.heading2} text-center`}>Lowongan Mata Kuliah SI</h1>
+        </div>
+          <div className="flex flex-wrap justify-center mt-5">
+            {listCourseSI.map((course) => (
+              <div
+                key={course.id}
+                className="m-2 px-4 py-2 bg-gray-gradient rounded-full shadow-lg text-white text-center font-poppins text-[18px] cursor-pointer hover:bg-gray-200 transition-all duration-300"
+              >
+                {course.name}
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* =====PERSYARATAN A.PRAKTIKUM SECTION===== */}
         <section id="requirements" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative `}>
